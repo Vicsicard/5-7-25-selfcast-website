@@ -6,24 +6,11 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "https://5-7-25-selfcast-cms.vercel.app/api/$1"
-    },
-    {
-      "src": "/cms",
-      "dest": "https://5-7-25-selfcast-cms.vercel.app"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://5-7-25-selfcast-cms.vercel.app/api/:path*" },
+    { "source": "/cms", "destination": "https://5-7-25-selfcast-cms.vercel.app" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "trailingSlash": false,
   "env": {
     "NODE_ENV": "production",
     "DEBUG": "true"
